@@ -1,0 +1,25 @@
+arr = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21]
+key = 15
+
+low = 0
+high = len(arr) - 1
+
+while low <= high and key >= arr[low] and key <= arr[high]:
+    if low == high:
+        if arr[low] == key:
+            print(f"Element found at index {low}")
+        else:
+            print("Element not found")
+        break
+
+    pos = low + ((key - arr[low]) * (high - low)) // (arr[high] - arr[low])
+
+    if arr[pos] == key:
+        print(f"Element found at index {pos}")
+        break
+    elif arr[pos] < key:
+        low = pos + 1
+    else:
+        high = pos - 1
+else:
+    print("Element not found")
