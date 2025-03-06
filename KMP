@@ -1,0 +1,36 @@
+pattern = "abc"
+text = "ababcabcabc"
+
+prefix = [0] * len(pattern)
+j = 0  
+for i in range(1, len(pattern)):
+    while j > 0 and pattern[j] != pattern[i]:
+        j = prefix[j - 1]  
+    if pattern[j] == pattern[i]:
+        j += 1
+    prefix[i] = j  
+
+
+pattern_length = len(pattern)
+text_length = len(text)
+
+i = 0  
+j = 0 
+found = False
+
+while i < text_length:
+    if text[i] == pattern[j]:
+        i += 1
+        j += 1
+        if j == pattern_length:  
+            print(f"Pattern found at position {i - pattern_length}")
+            found = True
+            j = prefix[j - 1]
+    else:
+        if j > 0:
+            j = prefix[j - 1]  
+        else:
+            i += 1  
+
+if not found:
+    print("Pattern not found")
