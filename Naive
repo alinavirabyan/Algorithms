@@ -1,0 +1,11 @@
+text = "ababcacabc"
+pattern = "abc"
+
+for i in range(len(text) - len(pattern) + 1):
+    match = True
+    for j in range(len(pattern)):
+        if text[i + j] != pattern[j]:
+            match = False
+            break
+    if match:
+        print(f"Pattern found at index {i}")
