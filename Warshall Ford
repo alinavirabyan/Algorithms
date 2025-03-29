@@ -16,9 +16,8 @@ def warshall_floyd():
             matrix[u][v] = weight
 
     for i in range(V):
-        matrix[i][i] = 0  # Սկզբնական գագաթից ինքնին դեպի ինքն իրեն ծախսը 0 է
+        matrix[i][i] = 0
     
-    # Warshall-Floyd ալգորիթմի կիրառումը (relaxation)
     for k in range(V):
         for i in range(V):
             for j in range(V):
