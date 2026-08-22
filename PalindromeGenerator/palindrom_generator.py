@@ -1,0 +1,32 @@
+a = input("Enter a string: ")
+b = {}
+
+for c in a:
+    if c in b:
+        b[c] += 1
+    else:
+        b[c] = 1
+
+odd_count = 0
+odd_chars = []
+half_palindrome = []
+
+for char, count in b.items():
+    if count % 2 != 0:
+        odd_count += 1
+        odd_chars.append(char)
+    half_palindrome.append(char * (count // 2))
+
+if odd_count > 1:
+    for i in range(odd_count - 1):
+        half_palindrome.append(odd_chars[i])
+
+    middle = "".join(odd_chars[-1])
+else:
+    middle = "".join(odd_chars)
+
+a = "".join(half_palindrome)
+cc = a[::-1]
+
+full_palindrome = a + middle + cc
+print("Palindrome is:", full_palindrome)
