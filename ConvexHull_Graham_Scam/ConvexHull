@@ -1,0 +1,44 @@
+import random
+import matplotlib.pyplot as plt
+
+def graham_scan(points):
+    points = sorted(points)
+
+    def orientation(p, q, r):
+        return (q[0] - p[0]) * (r[1] - q[1]) - (q[1] - p[1]) * (r[0] - p[0])
+
+    lower = []
+    for p in points:
+        while len(lower) >= 2 and orientation(lower[-2], lower[-1], p) <= 0:
+            lower.pop()
+        lower.append(p)
+
+    upper = []
+    for p in reversed(points):
+        while len(upper) >= 2 and orientation(upper[-2], upper[-1], p) <= 0:
+            upper.pop()
+        upper.append(p)
+
+    return lower[:-1] + upper[:-1]
+
+num_points = 35
+points = [(random.randint(0, 50), random.randint(0, 50)) for _ in range(num_points)]
+
+convex_hull = graham_scan(points)
+
+plt.figure()
+
+x, y = zip(*points)
+plt.scatter(x, y, color='blue', label='Points')
+
+hull_x, hull_y = zip(*convex_hull + [convex_hull[0]])
+plt.plot(hull_x, hull_y, color='red', label='Convex Hull')
+plt.fill(hull_x, hull_y, color='red', alpha=0.3)
+
+plt.title('Graham Scan Convex Hull')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.legend()
+plt.grid()
+
+plt.show()
