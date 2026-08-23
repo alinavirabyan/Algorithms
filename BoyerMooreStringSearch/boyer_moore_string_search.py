@@ -1,30 +1,48 @@
-# Boyer-Moore String Search
+t = "data"
+S = set()
+M = len(t)
+d = {}
 
-This project demonstrates the **Boyer-Moore string search algorithm** for finding a pattern within a text.
+for i in range(M - 2, -1, -1):
+    if t[i] not in S:
+        d[t[i]] = M - i - 1
+        S.add(t[i])
 
-The algorithm compares the pattern with the text from **right to left** and uses a shift table to skip unnecessary comparisons after a mismatch.
+if t[M - 1] not in S:
+    d[t[M - 1]] = M
 
-## How It Works
+d['*'] = M
 
-1. Build a shift table based on the characters in the pattern.
-2. Align the pattern with the text.
-3. Compare the pattern and text from right to left.
-4. When a mismatch occurs, use the shift table to determine how far to shift the pattern.
-5. Continue until the pattern is found or the end of the text is reached.
+a = "meteorologicaldata"
+N = len(a)
 
-## Complexity
+if N >= M:
+    i = M - 1
 
-* **Best Case:** O(n / m)
-* **Average Case:** O(n)
-* **Worst Case:** O(n × m)
-* **Space Complexity:** O(m)
+    while i < N:
+        k = 0
+        flBreak = False
 
-where `n` is the length of the text and `m` is the length of the pattern.
+        for j in range(M - 1, -1, -1):
+            if a[i - k] != t[j]:
 
-## Main Concept
+                if j == M - 1:
+                    off = d[a[i]] if d.get(a[i], False) else d['*']
+                else:
+                    off = d[t[j]]
 
-**String Pattern Matching**
+                i += off
+                flBreak = True
+                break
 
-## File
+            k += 1
 
-* [`boyer_moore_string_search.py`](https://github.com/alinavirabyan/Algorithms/blob/main/BoyerMooreStringSearch/boyer_moore_string_search.py) — Implementation of the Boyer-Moore string search algorithm.
+        if not flBreak:
+            print(f"Pattern found at index {i - k + 1}")
+            break
+
+    else:
+        print("Pattern not found")
+
+else:
+    print("Pattern not found")
