@@ -2,14 +2,14 @@
 
 This project demonstrates the **Heap Sort algorithm** for sorting elements in an array.
 
-Heap Sort uses a **binary heap** data structure to organize the elements. The algorithm first builds a max heap, then repeatedly moves the largest element to the end of the array and restores the heap structure.
+Heap Sort uses a **binary heap** to organize the elements. The algorithm first builds a max heap and then repeatedly moves the largest element to the end of the array while restoring the heap structure.
 
 ## How It Works
 
 1. Build a max heap from the array.
 2. Find the largest element at the root of the heap.
 3. Swap the root with the last unsorted element.
-4. Reduce the heap size.
+4. Reduce the size of the heap.
 5. Restore the heap property.
 6. Repeat until the array is sorted.
 
@@ -26,4 +26,4 @@ Heap Sort uses a **binary heap** data structure to organize the elements. The al
 
 ## File
 
-* `heap_sort.py` — Implementation of the Heap Sort algorithm.
+* [`heap_sort.py`](https://github.com/alinavirabyan/Algorithms/blob/main/HeapSort/heap_sort.py) — Implementation of the Heap Sort algorithm.
