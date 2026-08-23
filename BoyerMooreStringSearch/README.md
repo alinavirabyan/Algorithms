@@ -27,4 +27,4 @@ where `n` is the length of the text and `m` is the length of the pattern.
 
 ## File
 
-* [`boyer_moore_string_search.py`](https://github.com/alinavirabyan/Algorithms/blob/main/Moore/boyer_moore_string_search.py) — Implementation of the Boyer-Moore string search algorithm.
+* [`boyer_moore_string_search.py`](https://github.com/alinavirabyan/Algorithms/blob/main/BoyerMooreStringSearch/boyer_moore_string_search.py) — Implementation of the Boyer-Moore string search algorithm.
