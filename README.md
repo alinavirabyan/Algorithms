@@ -120,15 +120,6 @@ The main goals of this repository are:
 - Understand the time and space complexity of different approaches.
 - Build practical implementations of classical algorithms.
 - Maintain a structured collection of algorithms for future reference.
-
----
-
-## 👩‍💻 Author
-
-**Alina Virabyan**
-
-Bachelor's degree background in **Artificial Intelligence and Machine Learning**, with an interest in algorithms, machine learning, and software development.
-
 ---
 
 ## 📌 Repository
