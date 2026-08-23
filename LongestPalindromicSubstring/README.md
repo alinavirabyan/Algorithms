@@ -25,4 +25,4 @@ where `n` is the length of the input string.
 
 ## File
 
-- `longest_palindromic_substring.py` — Implementation of the Longest Palindromic Substring algorithm.
+- [`longest_palindromic_substring.py`](https://github.com/alinavirabyan/Algorithms/blob/main/LongestPalindromicSubstring/longest_palindromic_substring.py) — Implementation of the Longest Palindromic Substring algorithm.
