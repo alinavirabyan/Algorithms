@@ -1,0 +1,11 @@
+a = input("Enter a string: ")
+b = len(a)
+c = ""
+
+for d in range(b):
+    for e in range(d + 1, b + 1):
+        f = a[d:e]
+        if f == f[::-1] and len(f) > len(c):
+            c = f
+
+print("The longest palindromic substring is:", c)
